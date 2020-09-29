@@ -6,7 +6,7 @@ const swaggerUI = require('swagger-ui-express');
 const config = require('../config.js')  //establezco un objeto para valores que se pueden cambiar y realizarlo desde un unico documento
 const user = require('./components/user/network'); //llamo a componente network de user
 const auth = require('./components/auth/network'); //llamo a componente network de auth
-// const post = require('./components/post/network'); //llamo a componente network de post  Se llama como un microservicio y queda alojado en /Proyecto_r-social/posts/..
+//const post = require('./components/post/network'); //llamo a componente network de post  Se llama como un microservicio y queda alojado en /Proyecto_r-social/posts/..
 
 const errors = require('../network/errors'); //Manejo de errores
 
