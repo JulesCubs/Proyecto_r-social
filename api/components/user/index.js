@@ -2,13 +2,16 @@
 //const store = require('../../../store/mysql'); //BD mysql de freemysqlhosting
 const config = require('../../../config');
 
-let store;
+let store, cache;
 if(config.remoteDB === true) {
     store = require('../../../store/remote-mysql');
+    cache = require('../../../store/remote-cache');
 } else {
     store = require('../../../store/mysql');
+    cache = require('../../../store/redis');
+
 }
 
 const controller = require('./controller');
 
-module.exports = controller(store);
+module.exports = controller(store, cache);

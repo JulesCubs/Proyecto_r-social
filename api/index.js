@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParse = require('body-parser'); //para trabajar con el documento json. npm i body-parse
+const bodyParser = require('body-parser'); //para trabajar con el documento json. npm i body-parse
 
 const swaggerUI = require('swagger-ui-express');
 
@@ -12,7 +12,7 @@ const errors = require('../network/errors'); //Manejo de errores
 
 const app = express(); //establezco a express en la variable de app
 
-app.use(bodyParse.json()); //puedo usar json para establecer valores desde un docuemnto de ese formato
+app.use(bodyParser.json()); //puedo usar json para establecer valores desde un docuemnto de ese formato
 
 const swaggerDoc = require('./swagger.json');
 

@@ -3,16 +3,30 @@ const auth = require('../auth'); //No estamos llamando a ningun componente espci
 
 const TABLA = 'user';
 
-module.exports = function(injectedStore) {
+module.exports = function(injectedStore, injectedCache) {
     let store = injectedStore;
+    let cache = injectedCache
 
     if(!store) {
         store = require('../../../store/dummy');
     }
 
-    function list() {
-        console.log('Conectado a BD')
-        return store.list(TABLA);
+    if(!cache) {
+        store = require('../../../store/dummy');
+    }
+
+    async function list() {
+        let users = await cache.list(TABLA);
+        //console.log('Conectado a BD')
+        if(!users) {
+            console.log('No estaba en cache: Busca en BD');
+            users = await store.list(TABLA);
+            cache.upsert(TABLA, users);
+        } else {
+            console.log('datos traidos de cache');
+        }
+
+        return users;
     };
 
     function get(id) {
