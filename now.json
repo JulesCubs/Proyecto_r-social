@@ -2,9 +2,9 @@
     "version": 2,
     "env": {
         "MYSQL_HOST": "sql10.freemysqlhosting.net",
-        /*"MYSQL_USER": "sql10367668",
+        "MYSQL_USER": "sql10367668",
         "MYSQL_PASS": "teG6mT4ib5",
-        "MYSQL_DB": "sql10367668",*/
+        "MYSQL_DB": "sql10367668"
     },
     "builds": [
         {
